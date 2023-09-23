@@ -109,12 +109,14 @@ public class RobotContainer {
     // An example trajectory to follow.  All units in meters.
     Trajectory exampleTrajectory =
         TrajectoryGenerator.generateTrajectory(
-            // Start at (1, 2) facing the +X direction
+            // Start at whatever given position the robot is
             m_robotDrive.getPose(),
             // Pass through these two interior waypoints, making an 's' curve path
-            List.of(new Translation2d(2, 3), new Translation2d(3, 1)),
-            // End 3 meters straight ahead of where we started, facing forward
-            new Pose2d(4, 2, new Rotation2d(0)),
+            List.of(new Translation2d(2, 3), new Translation2d(3, 1), 
+            new Translation2d(4, 3), new Translation2d(5, 1), 
+            new Translation2d(6, 3)),
+            // End exactly where we started
+            m_robotDrive.getPose(),
             // Pass config
             config);
 
